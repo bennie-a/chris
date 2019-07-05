@@ -28,6 +28,11 @@
       document.documentElement.setAttribute('onsflag-iphonex-portrait', '');
       document.documentElement.setAttribute('onsflag-iphonex-landscape', '');
     }
+
+    document.addEventListener('prechange', function(event) {
+      document.querySelector('ons-toolbar .center')
+        .innerHTML = event.tabItem.getAttribute('label');
+    });
   </script>
 </head>
 <body>
@@ -42,20 +47,32 @@
   <ons-template id="page.html">
     <ons-page>
       <ons-toolbar>
-        <div class="left">
-          <ons-back-button>Back</ons-back-button>
-        </div>
-        <div class="center">Navigation</div>
+        <div class="center">ホーム</div>
       </ons-toolbar>
 
       <section style="padding: 10px">
-        <ons-button ng-click="navi.pushPage('page.html')">
-          Push Page
-        </ons-button>
-
-        <p>
-          You have pushed {{ app.pushes }} times and popped {{ app.pops }} times.
-        </p>
+        <ons-page>
+          <ons-tabbar swipeable>
+            <ons-tab page="tab1.html" label="ホーム" icon="ion-home, material:md-home" active>
+            </ons-tab>
+            <ons-tab page="tab2.html" label="在庫管理" icon="ion-filing">
+            </ons-tab>
+          </ons-tabbar>
+        </ons-page>
+        <template id="tab1.html">
+          <ons-page id="Tab1">
+            <p style="text-align: center;">
+              This is the first page.
+            </p>
+          </ons-page>
+        </template>
+        <template id="tab2.html">
+          <ons-page id="Tab2">
+            <p style="text-align: center;">
+              This is the second page.
+            </p>
+          </ons-page>
+        </template>
       </section>
     </ons-page>
   </ons-template>
