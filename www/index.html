@@ -53,9 +53,9 @@
       <section style="padding: 10px">
         <ons-page>
           <ons-tabbar swipeable>
-            <ons-tab page="tab1.html" label="ホーム" icon="ion-home, material:md-home" active>
+            <ons-tab page="tab1.html" label="売上" icon="fa-yen-sign" active>
             </ons-tab>
-            <ons-tab page="tab2.html" label="在庫管理" icon="ion-filing">
+            <ons-tab page="tab2.html" label="在庫管理" icon="fa-warehouse">
             </ons-tab>
           </ons-tabbar>
         </ons-page>
@@ -68,9 +68,30 @@
         </template>
         <template id="tab2.html">
           <ons-page id="Tab2">
-            <p style="text-align: center;">
-              This is the second page.
-            </p>
+            <section class="form">
+              <input type="search" value="" placeholder="Search" class="search-input" style="width: 280px;">
+              <ul class="list">
+                <li class="list-item">
+                  <div class="list-item__center">Dog</div>
+                </li>
+                <li class="list-item">
+                  <div class="list-item__center">Cat</div>
+                </li>
+                <li class="list-item">
+                  <div class="list-item__center">Hamster</div>
+                </li>
+              </ul>
+                  <ons-list-header>Thumbnails and titles</ons-list-header>
+                <ons-list-item>
+                <div class="left">
+                  <img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+                </div>
+                <div class="center">
+                <span class="list-item__title">Cutest kitty</span><span class="list-item__subtitle">On the Internet</span>
+                </div>
+                </ons-list-item>
+              <ons-button onclick="alert('!!')">登録</ons-button>
+            </section>
           </ons-page>
         </template>
       </section>
