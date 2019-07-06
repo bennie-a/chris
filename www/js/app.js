@@ -3,9 +3,22 @@ ons.bootstrap()
   .controller('AppController', function($scope) {
     this.pushes = 0;
     this.pops = 0;
+    $scope.isLogin = false;
     $scope.login = function(username, password) {
       console.log(username);
       console.log(password);
+        var MC = monaca.cloud;
+        MC.User.login(username, password)
+          .done(function()
+          {
+            console.log('login: '  + MC.User._oid);
+            $scope.isLogin = true;
+          })
+          .fail(function(err)
+          {
+            alert('Login failed: ' + err.message);
+            console.error(JSON.stringify(err));
+          });
     };
   });
   ons.ready(function() {

@@ -31,7 +31,7 @@
       <section class="form">
         <!-- Login page -->
         <ons-page>
-          <div id="login-page">
+          <div id="login-page" ng-show="!isLogin">
             <p>
               <ons-input id="username" modifier="underbar" placeholder="ユーザー名" float ng-model="username"></ons-input>
             </p>
@@ -41,12 +41,9 @@
             <p class="submit">
               <ons-button modifier="large" ng-click="login(username, password);">ログイン</ons-button>
             </p>
-            <p class="submit">
-              <ons-button modifier="large" ng-click="page.login()">アカウント作成</ons-button>
-            </p>
         </div>
         </ons-page>
-        <ons-page ng-show="false">
+        <ons-page ng-show="isLogin">
           <ons-toolbar>
             <div class="center">ホーム</div>
           </ons-toolbar>
@@ -95,6 +92,5 @@
       </section>
     </ons-page>
   </ons-template>
-
 </body>
 </html>
