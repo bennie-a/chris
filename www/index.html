@@ -8,32 +8,12 @@
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
   <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
+  <script src="js/app.js"></script>
 
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
   <link rel="stylesheet" href="css/style.css">
-
-  <script>
-    ons.bootstrap()
-      .controller('AppController', function() {
-        this.pushes = 0;
-        this.pops = 0;
-      });
-    ons.ready(function() {
-        console.log("Onsen UI is ready!");
-    });
-
-    if (ons.platform.isIPhoneX()) {
-      document.documentElement.setAttribute('onsflag-iphonex-portrait', '');
-      document.documentElement.setAttribute('onsflag-iphonex-landscape', '');
-    }
-
-    document.addEventListener('prechange', function(event) {
-      document.querySelector('ons-toolbar .center')
-        .innerHTML = event.tabItem.getAttribute('label');
-    });
-  </script>
 </head>
 <body>
   <ons-navigator
@@ -43,15 +23,33 @@
     ons-postpush="app.pushes = app.pushes + 1"
     ons-postpop="app.pops = app.pops + 1">
   </ons-navigator>
-
   <ons-template id="page.html">
     <ons-page>
       <ons-toolbar>
-        <div class="center">ホーム</div>
+        <div class="center">ログイン</div>
       </ons-toolbar>
-
-      <section style="padding: 10px">
+      <section class="form">
+        <!-- Login page -->
         <ons-page>
+          <div id="login-page">
+            <p>
+              <ons-input id="username" modifier="underbar" placeholder="ユーザー名" float ng-model="username"></ons-input>
+            </p>
+            <p>
+              <ons-input id="password" modifier="underbar" type="password" placeholder="パスワード" float ng-model="password"></ons-input>
+            </p>
+            <p class="submit">
+              <ons-button modifier="large" ng-click="login(username, password);">ログイン</ons-button>
+            </p>
+            <p class="submit">
+              <ons-button modifier="large" ng-click="page.login()">アカウント作成</ons-button>
+            </p>
+        </div>
+        </ons-page>
+        <ons-page ng-show="false">
+          <ons-toolbar>
+            <div class="center">ホーム</div>
+          </ons-toolbar>
           <ons-tabbar swipeable>
             <ons-tab page="tab1.html" label="売上" icon="fa-yen-sign" active>
             </ons-tab>
@@ -90,7 +88,7 @@
                 <span class="list-item__title">Cutest kitty</span><span class="list-item__subtitle">On the Internet</span>
                 </div>
                 </ons-list-item>
-              <ons-button onclick="alert('!!')">登録</ons-button>
+              <ons-button onclick="registCard()">登録</ons-button>
             </section>
           </ons-page>
         </template>

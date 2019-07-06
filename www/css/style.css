@@ -3,3 +3,19 @@ section.form {
   text-align: center;
   margin-top: 20px;
 }
+
+#login-page {
+  margin:100px auto 0;
+}
+
+#login-page p, #register-page p {
+  display: inline-block;
+  width: 60%;
+}
+#login-page p.submit {
+  margin-top: 14px;
+}
+
+#register-page {
+
+}
