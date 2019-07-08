@@ -25,72 +25,17 @@
   </ons-navigator>
   <ons-template id="page.html">
     <ons-page>
-      <ons-toolbar>
-        <div class="center">ログイン</div>
-      </ons-toolbar>
       <section class="form">
-        <!-- Login page -->
         <ons-page>
-          <div id="login-page" ng-show="!isLogin">
-            <p>
-              <ons-input id="username" modifier="underbar" placeholder="ユーザー名" float ng-model="username"></ons-input>
-            </p>
-            <p>
-              <ons-input id="password" modifier="underbar" type="password" placeholder="パスワード" float ng-model="password"></ons-input>
-            </p>
-            <p class="submit">
-              <ons-button modifier="large" ng-click="login(username, password);">ログイン</ons-button>
-            </p>
-        </div>
-        </ons-page>
-        <ons-page ng-show="isLogin">
           <ons-toolbar>
             <div class="center">ホーム</div>
           </ons-toolbar>
           <ons-tabbar swipeable>
-            <ons-tab page="tab1.html" label="売上" icon="fa-yen-sign" active>
+            <ons-tab page="sales.html" label="売上" icon="fa-yen-sign" active>
             </ons-tab>
-            <ons-tab page="tab2.html" label="在庫管理" icon="fa-warehouse">
+            <ons-tab page="stock.html" label="商品管理" icon="fa-warehouse">
             </ons-tab>
           </ons-tabbar>
         </ons-page>
-        <template id="tab1.html">
-          <ons-page id="Tab1">
-            <p style="text-align: center;">
-              This is the first page.
-            </p>
-          </ons-page>
-        </template>
-        <template id="tab2.html">
-          <ons-page id="Tab2">
-            <section class="form">
-              <input type="search" value="" placeholder="Search" class="search-input" style="width: 280px;">
-              <ul class="list">
-                <li class="list-item">
-                  <div class="list-item__center">Dog</div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item__center">Cat</div>
-                </li>
-                <li class="list-item">
-                  <div class="list-item__center">Hamster</div>
-                </li>
-              </ul>
-                  <ons-list-header>Thumbnails and titles</ons-list-header>
-                <ons-list-item>
-                <div class="left">
-                  <img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
-                </div>
-                <div class="center">
-                <span class="list-item__title">Cutest kitty</span><span class="list-item__subtitle">On the Internet</span>
-                </div>
-                </ons-list-item>
-              <ons-button onclick="registCard()">登録</ons-button>
-            </section>
-          </ons-page>
-        </template>
-      </section>
-    </ons-page>
-  </ons-template>
 </body>
 </html>
