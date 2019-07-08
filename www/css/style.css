@@ -16,6 +16,13 @@ section.form {
   margin-top: 14px;
 }
 
-#register-page {
+.sales-title {
+  width: 80%;
+  font-size: 70%;
+  color:#666c67;
+}
 
+.sales-price {
+  font-size: 90%;
+  color:#333631;
 }
