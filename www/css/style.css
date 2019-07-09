@@ -54,20 +54,10 @@ label.promo {
   width:90%;
 }
 
-button.add-button {
-  background-color: #d32f2f;
-  width: 60px;
-	height: 38px;
-	border-radius: 70px;
-  padding: 15px 20px 45px;
-	display: block;
-	text-align: center;
-	font-size: 120%;
-	transition: background-color 0.5s ease-in;
-	-webkit-transition: background-color 0.5s ease-in;
-  position: fixed;
-  bottom: 20px;
-  margin-left:280px;
+/* 入力フォーム */
+section.item_form {
+  width:100%;
+  background-color: white; 
 }
 
 .sales-title {
