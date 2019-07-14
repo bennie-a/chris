@@ -5,14 +5,13 @@
   </ons-toolbar>
   <section class="item_form">
     <ons-list>
-      <ons-list-header>商品名とステータス</ons-list-header>
+      <ons-list-header>カード情報</ons-list-header>
       <ons-list-item modifier="longdivider">
         <label>商品名</label>
         <ons-input id="name" modifier="material" ng-model="page.name"></ons-input>
       </ons-list-item>
-      <ons-list-item modifier="longdivider">
-        <label>数量</label>
-        <ons-input id="amount" modifier="material" type="number" ng-model="page.amount"></ons-input>
+        <label>エキスパンション</label>
+        <ons-button modifier="quiet" onclick="navi.pushPage('expansion.html', {animation : 'slide'})">選択する</ons-button>
       </ons-list-item>
       <ons-list-item modifier="longdivider">
         <label>言語</label>
@@ -23,7 +22,11 @@
           <option value="ro">ロシア語</option>
         </ons-select>
       </ons-list-item>
-      <ons-list-header>仕入れ</ons-list-header>
+      <ons-list-header>数量と仕入れ情報</ons-list-header>
+      <ons-list-item modifier="longdivider">
+        <label>数量</label>
+        <ons-input id="amount" modifier="material" type="number" ng-model="page.amount"></ons-input>
+      </ons-list-item>
     </ons-list>
 
     <ons-button onclick="add_stock()">追加する</ons-button>
