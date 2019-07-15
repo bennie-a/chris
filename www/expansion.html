@@ -1,9 +1,19 @@
-<ons-page id="add_item">
+<ons-page id="add_expansion">
   <ons-toolbar>
     <div class="left"><ons-back-button>Back</ons-back-button></div>
     <div class="center">エキスパンション選択</div>
   </ons-toolbar>
   <section>
-    aaaa
+    <div>
+      <select name="select" ng-model="select" ng-options="option.value as option.name for option in options">
+          <option value="">-----</option>
+      </select>
+    </div>
+    <ons-select ng-model="page.language" id="language">
+      <option value="ja">日本語</option>
+      <option value="en">英語</option>
+      <option value="ch">中国語</option>
+      <option value="ro">ロシア語</option>
+    </ons-select>
   </section>
 </ons-page>

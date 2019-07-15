@@ -11,7 +11,7 @@
         <ons-input id="name" modifier="material" ng-model="page.name"></ons-input>
       </ons-list-item>
         <label>エキスパンション</label>
-        <ons-button modifier="quiet" onclick="navi.pushPage('expansion.html', {animation : 'slide'})">選択する</ons-button>
+        <ons-button modifier="quiet" ng-click="toExpansionPage()">選択する</ons-button>
       </ons-list-item>
       <ons-list-item modifier="longdivider">
         <label>言語</label>

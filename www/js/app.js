@@ -1,12 +1,27 @@
-// 起動時
+// アプリ起動時
 ons.bootstrap()
   .controller('AppController', function($scope) {
-    this.pushes = 0;
-    this.pops = 0;
+  // エキスパンション選択画面表示時
+  // 次元一覧を選択肢として取得
+    $scope.toExpansionPage = function() {
+      var MC = monaca.cloud;
+      var dimension = MC.Collection("dimension");
+      dimension.find()
+      .done(function(items, totalItems){
+        console.log(JSON.stringify(items.items));
+        $scope.options = items.items;
+        })
+      .fail(function(err){
+        console.error(err.code);
+      });
+
+      $scope.navi.pushPage('expansion.html', {animation : 'slide'});
+    }
   });
-  ons.ready(function() {
-      console.log("Onsen UI is ready!");
-  });
+
+ons.ready(function() {
+    console.log("Onsen UI is ready!");
+});
 
 if (ons.platform.isIPhoneX()) {
   document.documentElement.setAttribute('onsflag-iphonex-portrait', '');
@@ -33,7 +48,7 @@ function add_stock() {
 
 function add_ex() {
   var MC = monaca.cloud;
-  var expansion = MC.Collection("expansion");
+  var expansion = MC.Collection("dimension");
   for(var i in ex){
     var json = ex[i];
     expansion.insert(json)
