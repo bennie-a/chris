@@ -8,14 +8,13 @@ ons.bootstrap()
       var dimension = MC.Collection("dimension");
       dimension.find()
       .done(function(items, totalItems){
-        console.log(JSON.stringify(items.items));
         $scope.options = items.items;
-        })
+      })
       .fail(function(err){
         console.error(err.code);
+      }).always(function() {
+        $scope.navi.pushPage('expansion.html', {animation : 'slide'});
       });
-
-      $scope.navi.pushPage('expansion.html', {animation : 'slide'});
     }
   });
 

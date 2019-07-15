@@ -63,3 +63,9 @@ section.item_form {
 .sales-title {
   width: 80%;
 }
+
+/* エキスパンション選択画面の次元選択 */
+.di-selecter {
+  width:60%;
+  display: inline-block;
+}
