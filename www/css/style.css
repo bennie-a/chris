@@ -69,3 +69,22 @@ section.item_form {
   width:60%;
   display: inline-block;
 }
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.flex-container > a {
+  font-size:3.5em;
+  display: block;
+  font-weight: thin;
+  text-decoration: none;
+  color:black;
+}
+
+.flex-container > a i{
+  flex-basis: 33.3%;
+  text-align: center;
+}
