@@ -68,12 +68,14 @@ section.item_form {
 .di-selecter {
   width:60%;
   display: inline-block;
+  margin-bottom: 20px;
 }
 
 .flex-container {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+  justify-content: space-around;
 }
 
 .flex-container > a {
@@ -82,9 +84,7 @@ section.item_form {
   font-weight: thin;
   text-decoration: none;
   color:black;
-}
-
-.flex-container > a i{
-  flex-basis: 33.3%;
+  flex-basis: 25%;
   text-align: center;
+  margin-bottom: 10px;
 }
