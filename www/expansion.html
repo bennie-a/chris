@@ -5,12 +5,14 @@
   </ons-toolbar>
   <section class="form">
     <ons-select
-      ng-model="page.selectedModifier"
+      ng-model="selectedModifier"
       id="choose-sel"
       ng-change="" class="di-selecter"
     >
-      <option ng-repeat="option in options" value="{{option.abbreviation}}" >{{option.name}}</option>
+      <option value="none">選択してください</option>
+      <option ng-repeat="option in options" value="{{option.abbreviation}}">{{option.name}}</option>
     </ons-select>
+    {{page.selectedModifier}}
     <div class="flex-container">
       <a href="">
         <span class="mtx-gtc"></span>

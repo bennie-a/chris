@@ -9,6 +9,7 @@ ons.bootstrap()
       dimension.find()
       .done(function(items, totalItems){
         $scope.options = items.items;
+        $scope.selectedModifier = "none";
       })
       .fail(function(err){
         console.error(err.code);
