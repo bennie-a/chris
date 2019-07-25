@@ -1,9 +1,10 @@
 @font-face {
   font-family: 'mtg-symbols';
-  src:
-    url('fonts/mtg-symbols.ttf?9z5ehq') format('truetype'),
-    url('fonts/mtg-symbols.woff?9z5ehq') format('woff'),
-    url('fonts/mtg-symbols.svg?9z5ehq#mtg-symbols') format('svg');
+  src:  url('fonts/mtg-symbols.eot?9k4kyk');
+  src:  url('fonts/mtg-symbols.eot?9k4kyk#iefix') format('embedded-opentype'),
+    url('fonts/mtg-symbols.ttf?9k4kyk') format('truetype'),
+    url('fonts/mtg-symbols.woff?9k4kyk') format('woff'),
+    url('fonts/mtg-symbols.svg?9k4kyk#mtg-symbols') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -11,6 +12,7 @@
 [class^="mtx-"], [class*=" mtx-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'mtg-symbols' !important;
+  speak: none;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -40,24 +42,27 @@
 .mtx-hou:before {
   content: "\e905";
 }
-.mtx-mma:before {
+.mtx-m19:before {
   content: "\e906";
 }
-.mtx-rix:before {
+.mtx-mma:before {
   content: "\e907";
 }
-.mtx-rna:before {
+.mtx-rix:before {
   content: "\e908";
 }
-.mtx-rtr:before {
+.mtx-rna:before {
   content: "\e909";
 }
-.mtx-uma:before {
+.mtx-rtr:before {
   content: "\e90a";
 }
-.mtx-war:before {
+.mtx-uma:before {
   content: "\e90b";
 }
-.mtx-xln:before {
+.mtx-war:before {
   content: "\e90c";
+}
+.mtx-xln:before {
+  content: "\e90d";
 }
