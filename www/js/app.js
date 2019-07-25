@@ -34,8 +34,15 @@ ons.bootstrap()
               for (var i = "0"; i < expansions.length; i++) {
                 var abb = expansions[i].abbreviation;
                 var name = expansions[i].name;
-                var tags = '<li style=""><ons-button modifier="quiet" class="icon-only mtx-' + abb + '"></ons-button></li>';
-                result.insertAdjacentHTML("beforeend", tags);
+                var li = document.createElement("li");
+                var button  = document.createElement("ons-button");             button.setAttribute("modifier", "quiet");
+                button.classList.add("icon-only");
+                button.classList.add("mtx-" + abb);
+                button.addEventListener("click", function() {
+                  $scope.navi.popPage();
+                });
+                li.appendChild(button);
+                result.appendChild(li);
               }
             }).
             fail(function(err) {
@@ -44,10 +51,9 @@ ons.bootstrap()
       };
 
       // エキスパンション選択時
-      $scope.selectExpansion = function(name) {
+      $scope.selectExpansion = function() {
         console.log("AAA");
         // $scope.stock.expansion = name;
-        $scope.navi.pushPage("add_item.html");
       };
     }
   });
