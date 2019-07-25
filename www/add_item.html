@@ -5,16 +5,18 @@
   </ons-toolbar>
   <section class="item_form">
     <ons-list>
-      <ons-list-header>カード情報</ons-list-header>
+      <ons-list-header modifier="item-header">カード情報</ons-list-header>
       <ons-list-item modifier="longdivider">
-        <label>商品名</label>
-        <ons-input id="name" modifier="material" ng-model="page.name"></ons-input>
+        <span class="list-item__title">商品名</span>
+          <ons-input id="name" modifier="material" ng-model="page.name" size="30"></ons-input>
       </ons-list-item>
-        <label>エキスパンション</label>
+      <ons-list-item modifier="longdivider">
+        <span class="list-item__title">エキスパンション</span>
+        <span>未選択</span>
         <ons-button modifier="quiet" ng-click="toExpansionPage()">選択する</ons-button>
       </ons-list-item>
       <ons-list-item modifier="longdivider">
-        <label>言語</label>
+        <span class="list-item__title">言語</span>
         <ons-select ng-model="page.language" id="language">
           <option value="ja">日本語</option>
           <option value="en">英語</option>
@@ -22,10 +24,19 @@
           <option value="ro">ロシア語</option>
         </ons-select>
       </ons-list-item>
-      <ons-list-header>数量と仕入れ情報</ons-list-header>
+      <ons-list-header modifier="item-header">数量</ons-list-header>
       <ons-list-item modifier="longdivider">
-        <label>数量</label>
-        <ons-input id="amount" modifier="material" type="number" ng-model="page.amount"></ons-input>
+        <span class="list-item__title">数量</span>
+        <ons-input id="amount" modifier="material" type="number" ng-model="page.amount" size="2"></ons-input>
+      </ons-list-item>
+      <ons-list-header modifier="item-header">仕入れ情報</ons-list-header>
+      <ons-list-item modifier="longdivider">
+        <span class="list-item__title">仕入れ日</span>
+        <ons-input id="amount" modifier="material" type="number" ng-model="page.amount" size="2"></ons-input>
+      </ons-list-item>
+      <ons-list-item modifier="longdivider">
+        <span class="list-item__title">1枚当たり仕入れ価格</span>
+        <ons-input id="amount" modifier="material" type="number" ng-model="page.amount" size="2"></ons-input>
       </ons-list-item>
     </ons-list>
 

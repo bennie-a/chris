@@ -57,11 +57,21 @@ label.promo {
 /* 入力フォーム */
 section.item_form {
   width:100%;
-  background-color: white; 
 }
 
 .sales-title {
   width: 80%;
+}
+
+/* 入力欄の中見出し */
+.list-header--item-header {
+  background-color: #ECEFF1;
+  font-weight: bold;
+}
+
+section.item_form .list-item__title {
+  font-size:0.9em;
+  color: #504946;
 }
 
 /* エキスパンション選択画面の次元選択 */
