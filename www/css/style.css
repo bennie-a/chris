@@ -72,11 +72,24 @@ section.item_form {
 }
 
 .flex-container {
+  text-align: center;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+  justify-content: space-around;
 }
 
+.flex-container li {
+  padding: 1.2%;
+  flex-basis: 22%;
+  text-align: center;
+}
+
+/* アイコンのみボタン */
+.icon-only {
+  color:#333631;
+  font-size:3.5em;
+}
 .flex-container > a {
   font-size:3.5em;
   display: block;
@@ -85,5 +98,4 @@ section.item_form {
   color:black;
   flex-basis: 25%;
   text-align: center;
-  margin-bottom: 10px;
 }

@@ -3,7 +3,6 @@ ons.bootstrap()
   .controller('AppController', function($scope) {
   // エキスパンション選択画面表示時
   // 次元一覧を選択肢として取得
-    $scope.exIcons = {};
     $scope.toExpansionPage = function() {
       var MC = monaca.cloud;
       var dimension = MC.Collection("dimension");
@@ -33,14 +32,22 @@ ons.bootstrap()
             done(function(items, totalItems) {
               var expansions = items.items;
               for (var i = "0"; i < expansions.length; i++) {
-                var tags = '<a href=""><span class="mtx-' + expansions[i].abbreviation + '"></span></a>';
+                var abb = expansions[i].abbreviation;
+                var name = expansions[i].name;
+                var tags = '<li style=""><ons-button modifier="quiet" class="icon-only mtx-' + abb + '"></ons-button></li>';
                 result.insertAdjacentHTML("beforeend", tags);
               }
-              $scope.exIcons = items.items;
             }).
             fail(function(err) {
               console.error(err.code);
             });
+      };
+
+      // エキスパンション選択時
+      $scope.selectExpansion = function(name) {
+        console.log("AAA");
+        // $scope.stock.expansion = name;
+        $scope.navi.pushPage("add_item.html");
       };
     }
   });
