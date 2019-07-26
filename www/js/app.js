@@ -39,15 +39,20 @@ ons.bootstrap()
           done(function(items, totalItems) {
             var expansions = items.items;
             for (var i = "0"; i < expansions.length; i++) {
-              var abb = expansions[i].abbreviation;
+              var abbr = expansions[i].abbreviation;
               var name = expansions[i].name;
-              var li = document.createElement("li");
+              var li = document.createElement("ons-list-item");
               var button  = document.createElement("ons-button");
-              button.setAttribute("modifier", "quiet");
+              button.setAttribute("modifier", "large--quiet");
               button.classList.add("icon-only");
-              button.classList.add("mtx-" + abb);
+              button.classList.add("mtx-" + abbr);
+              button.textContent = name;
+
               // 各エキスパンションアイコンにクリックイベントを追加。
               button.addEventListener("click", function() {
+                $scope.stock.exName = name;
+                console.log(name);
+                // $scope.stock.exAbbr = abbr;
                 $scope.navi.popPage();
               });
               li.appendChild(button);

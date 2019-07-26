@@ -94,10 +94,17 @@ section.item_form .list-item__title {
   text-align: center;
 }
 
-/* アイコンのみボタン */
+/* エキスパンションリンク */
+.icon-only:before {
+  font-size:1.3em;
+  margin-right:5px;
+  vertical-align: -0.1em;
+}
 .icon-only {
+  text-align: left;
   color:#333631;
-  font-size:3em;
+  font-size:1.2em;
+  margin-left: 1.5%;
 }
 .flex-container > a {
   font-size:3.5em;
