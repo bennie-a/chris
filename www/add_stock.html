@@ -8,11 +8,12 @@
       <ons-list-header modifier="item-header">カード情報</ons-list-header>
       <ons-list-item modifier="longdivider">
         <span class="list-item__title">商品名</span>
-          <ons-input id="name" modifier="material" ng-model="page.name" size="30"></ons-input>
+          <ons-input id="name" modifier="material" ng-model="stock.name" size="30"></ons-input>
       </ons-list-item>
       <ons-list-item modifier="longdivider">
         <span class="list-item__title">エキスパンション</span>
-        <span>未選択</span>
+        <span ng-if="!stock.exName">未選択</span>
+        <span ng-if="!!stock.exName">{{stock.exName}}</span>
         <ons-button modifier="quiet" ng-click="toExpansionPage()">選択する</ons-button>
       </ons-list-item>
       <ons-list-item modifier="longdivider">

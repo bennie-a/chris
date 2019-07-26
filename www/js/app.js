@@ -1,8 +1,14 @@
 // アプリ起動時
 ons.bootstrap()
   .controller('AppController', function($scope) {
-  // エキスパンション選択画面表示時
-  // 次元一覧を選択肢として取得
+    // 新規商品画面表示
+    $scope.toAddStockPage = function() {
+      $scope.stock = {};
+      $scope.navi.pushPage('add_stock.html', {animation : 'slide'});
+    }
+
+    // エキスパンション選択画面表示
+    // 次元一覧を選択肢として取得
     $scope.toExpansionPage = function() {
       var MC = monaca.cloud;
       var dimension = MC.Collection("dimension");
@@ -16,46 +22,43 @@ ons.bootstrap()
         $scope.selectedModifier = "none";
         $scope.navi.pushPage('expansion.html', {animation : 'slide'});
       });
-      
-      // 次元プルダウン変更イベント
-      $scope.changeDimension = function(){
-        // 一覧からエキスパンションアイコンを削除。
-        var result = document.getElementById("ex-result");
-        var link = result.children;
-        while(result.firstChild) {
-          result.removeChild(result.firstChild);
-        }
-
-        var MC = monaca.cloud;
-        var ex = MC.Collection("expansion");
-        ex.find('dimension == ' + this.selectedModifier, {propertyNames:["abbreviation", "name"]}).
-            done(function(items, totalItems) {
-              var expansions = items.items;
-              for (var i = "0"; i < expansions.length; i++) {
-                var abb = expansions[i].abbreviation;
-                var name = expansions[i].name;
-                var li = document.createElement("li");
-                var button  = document.createElement("ons-button");             button.setAttribute("modifier", "quiet");
-                button.classList.add("icon-only");
-                button.classList.add("mtx-" + abb);
-                button.addEventListener("click", function() {
-                  $scope.navi.popPage();
-                });
-                li.appendChild(button);
-                result.appendChild(li);
-              }
-            }).
-            fail(function(err) {
-              console.error(err.code);
-            });
-      };
-
-      // エキスパンション選択時
-      $scope.selectExpansion = function() {
-        console.log("AAA");
-        // $scope.stock.expansion = name;
-      };
     }
+
+    // 次元プルダウン変更イベント
+    $scope.changeDimension = function(){
+      // 一覧からエキスパンションアイコンを削除。
+      var result = document.getElementById("ex-result");
+      var link = result.children;
+      while(result.firstChild) {
+        result.removeChild(result.firstChild);
+      }
+
+      var MC = monaca.cloud;
+      var ex = MC.Collection("expansion");
+      ex.find('dimension == ' + this.selectedModifier, {propertyNames:["abbreviation", "name"]}).
+          done(function(items, totalItems) {
+            var expansions = items.items;
+            for (var i = "0"; i < expansions.length; i++) {
+              var abb = expansions[i].abbreviation;
+              var name = expansions[i].name;
+              var li = document.createElement("li");
+              var button  = document.createElement("ons-button");
+              button.setAttribute("modifier", "quiet");
+              button.classList.add("icon-only");
+              button.classList.add("mtx-" + abb);
+              // 各エキスパンションアイコンにクリックイベントを追加。
+              button.addEventListener("click", function() {
+                $scope.navi.popPage();
+              });
+              li.appendChild(button);
+              result.appendChild(li);
+            }
+          }).
+          fail(function(err) {
+            console.error(err.code);
+          }
+        );
+    };
   });
 
 ons.ready(function() {
