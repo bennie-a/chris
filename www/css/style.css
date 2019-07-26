@@ -81,19 +81,6 @@ section.item_form .list-item__title {
   margin-bottom: 15px;
 }
 
-.flex-container {
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-}
-
-.flex-container li {
-  padding: 1%;
-  flex-basis: 20%;
-  text-align: center;
-}
-
 /* エキスパンションリンク */
 .icon-only:before {
   font-size:1.3em;
@@ -105,13 +92,4 @@ section.item_form .list-item__title {
   color:#333631;
   font-size:1.2em;
   margin-left: 1.5%;
-}
-.flex-container > a {
-  font-size:3.5em;
-  display: block;
-  font-weight: thin;
-  text-decoration: none;
-  color:black;
-  flex-basis: 25%;
-  text-align: center;
 }

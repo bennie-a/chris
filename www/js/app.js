@@ -49,10 +49,10 @@ ons.bootstrap()
               button.textContent = name;
 
               // 各エキスパンションアイコンにクリックイベントを追加。
-              button.addEventListener("click", function() {
-                $scope.stock.exName = name;
-                console.log(name);
-                // $scope.stock.exAbbr = abbr;
+              button.addEventListener("click", function(e) {
+                var target = e.target;
+                $scope.stock.exName = target.textContent;
+                $scope.stock.exAbbr = target.classList[target.classList.length - 2];
                 $scope.navi.popPage();
               });
               li.appendChild(button);
