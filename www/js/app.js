@@ -1,9 +1,60 @@
-// アプリ起動時
-ons.bootstrap()
-  .controller('AppController', function($scope) {
+var app = ons.bootstrap();
+// 数量減ボタン
+app.directive('plusSpinner', function() {
+  return {
+    restrict : 'E',
+    template : '<ons-button><ons-icon icon="md-plus"></ons-icon></ons-button>',
+    scope:{
+      count:'@',
+      limit:'@',
+      model:'=?'
+    },
+    link:function(scope, elem, attrs) {
+      elem.bind('click', function() {
+        scope.$apply(function() {
+          if (!scope.model) {
+            scope.model = 0;
+          }
+          var model = parseInt(scope.model);
+          var count = parseInt(scope.count);
+          var limit = parseInt(scope.limit);
+          if (model < limit) {
+            scope.model = model + count;
+          }
+        });
+      });
+    }
+  };
+});
+
+// 数量減ボタン
+app.directive('minusSpinner', function() {
+  return {
+    restrict : 'E',
+    template : '<ons-button><ons-icon icon="md-minus" ></ons-icon></ons-button>',
+    scope:{
+      count:'@',
+      limit:'@',
+      model:'=?'
+    },
+    link:function(scope, elem, attrs) {
+      elem.bind('click', function() {
+        scope.$apply(function() {
+          var model = parseInt(scope.model);
+          var count = parseInt(scope.count);
+          var limit = parseInt(scope.limit);
+          if (model > limit) {
+            scope.model = model - count;
+          }
+        });
+      });
+    }
+  };
+});
+app.controller('AppController', function($scope) {
     // 新規商品画面表示
     $scope.toAddStockPage = function() {
-      $scope.stock = {};
+      $scope.stock = {amount : 0};
       $scope.navi.pushPage('add_stock.html', {animation : 'slide'});
     }
 

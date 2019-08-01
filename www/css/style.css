@@ -74,6 +74,23 @@ section.item_form .list-item__title {
   color: #504946;
 }
 
+/* 言語選択肢 */
+.select--language {
+  width:40%;
+}
+
+div.spinner > .button {
+  font-size:1.5em;
+  box-sizing: border-box;
+  color:#d32f2f;
+  border:1px solid #d32f2f;
+  background: transparent;
+}
+
+div.spinner > .input {
+  width: 10px;
+}
+
 /* エキスパンション選択画面の次元選択 */
 .di-selecter {
   width:60%;
