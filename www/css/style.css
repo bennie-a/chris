@@ -79,16 +79,24 @@ section.item_form .list-item__title {
   width:40%;
 }
 
-div.spinner > .button {
+div.spinner {
+  width: 100%;
+}
+
+/* div.spinner > .button--red-button {
   font-size:1.5em;
   box-sizing: border-box;
   color:#d32f2f;
   border:1px solid #d32f2f;
   background: transparent;
-}
+  margin: 10%;
+} */
 
-div.spinner > .input {
-  width: 10px;
+div.spinner > span {
+  box-sizing: border-box;
+  font-size: 1.3em;
+  width: 40%;
+  padding:2% 7% 0;
 }
 
 /* エキスパンション選択画面の次元選択 */

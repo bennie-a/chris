@@ -28,13 +28,10 @@
       <ons-list-header modifier="item-header">数量</ons-list-header>
       <ons-list-item modifier="longdivider">
         <span class="list-item__title">数量</span>
-        <div spinner></div>
-        <minus-spinner count="1" limit="0" model="stock.amount"></minus-spinner>
-        {{stock.amount}}
-        <plus-spinner count="1" limit="10" model="stock.amount"></plus-spinner>
-          <!-- <ons-button><ons-icon icon="md-minus" ></ons-icon></ons-button>
-          {{stock.amount}}
-          <ons-button><ons-icon icon="md-plus"></ons-icon></ons-button> -->
+        <div class="spinner">
+            <minus-spinner count="1" limit="0" model="stock.amount"></minus-spinner>
+            <span>{{stock.amount}}</span>
+            <plus-spinner count="1" limit="10" model="stock.amount"></plus-spinner>
         </div>
       </ons-list-item>
       <ons-list-header modifier="item-header">仕入れ情報</ons-list-header>
