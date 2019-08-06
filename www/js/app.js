@@ -54,7 +54,7 @@ app.directive('minusSpinner', function() {
 app.controller('AppController', function($scope) {
     // 新規商品画面表示
     $scope.toAddStockPage = function() {
-      $scope.stock = {amount : 0};
+      $scope.stock = {amount : 0, foil:false};
       $scope.navi.pushPage('add_stock.html', {animation : 'slide'});
     }
 

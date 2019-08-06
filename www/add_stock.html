@@ -25,9 +25,18 @@
           <option value="ro">ロシア語</option>
         </ons-select>
       </ons-list-item>
-      <ons-list-header modifier="item-header">数量</ons-list-header>
+      <ons-list-item>
+        <div class="left switch-layout">
+          <label ng-class="stock.foil?'switch-off':'switch-on'">Normalカード</label>
+          <ons-switch ng-model="stock.foil"></ons-switch>
+          <label ng-class="stock.foil?'switch-on':'switch-off'">Foilカード</label>
+        </div>
+      </ons-list-item>
+      <ons-list-item>
+        <span class="list-item__title">プロモカード</span>
+      </ons-list-item>
+      <!-- <ons-list-header modifier="item-header">数量</ons-list-header>
       <ons-list-item modifier="longdivider">
-        <span class="list-item__title">数量</span>
         <div class="spinner">
             <minus-spinner count="1" limit="0" model="stock.amount"></minus-spinner>
             <span>{{stock.amount}}</span>
@@ -42,9 +51,8 @@
       <ons-list-item modifier="longdivider">
         <span class="list-item__title">1枚当たり仕入れ価格</span>
         <ons-input id="amount" modifier="material" type="number" ng-model="page.amount" size="2"></ons-input>
-      </ons-list-item>
+      </ons-list-item> -->
     </ons-list>
-
-    <ons-button onclick="add_stock()">追加する</ons-button>
+    <ons-button modifier="large submit-button" onclick="add_stock()">追加する</ons-button>
   </section>
 </ons-page>
