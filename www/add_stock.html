@@ -27,13 +27,19 @@
       </ons-list-item>
       <ons-list-item>
         <div class="left switch-layout">
-          <label ng-class="stock.foil?'switch-off':'switch-on'">Normalカード</label>
-          <ons-switch ng-model="stock.foil"></ons-switch>
-          <label ng-class="stock.foil?'switch-on':'switch-off'">Foilカード</label>
+          <label for="is-foil" ng-class="stock.foil?'switch-on':'switch-off'">Foilカード</label>
+        </div>
+        <div class="center">
+          <ons-switch input-id="is-foil" ng-model="stock.foil"></ons-switch>
         </div>
       </ons-list-item>
       <ons-list-item>
-        <span class="list-item__title">プロモカード</span>
+        <div class="left switch-layout">
+          <label for="is-promo" ng-class="!stock.promo?'switch-off':'switch-on'">プロモカード</label>
+        </div>
+        <div class="center">
+          <ons-switch input-id="is-promo" ng-model="stock.promo"></ons-switch>
+        </div>
       </ons-list-item>
       <!-- <ons-list-header modifier="item-header">数量</ons-list-header>
       <ons-list-item modifier="longdivider">
