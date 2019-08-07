@@ -70,50 +70,38 @@ app.controller('AppController', function($scope) {
       .fail(function(err){
         console.error(err.code);
       }).always(function() {
-        $scope.selectedModifier = "none";
+        if (angular.isUndefined($scope.selectedModifier)) {
+          $scope.selectedModifier = "none";
+        } else if (angular.isDefined($scope.stock.dimension)) {
+          $scope.selectedModifier = $scope.stock.dimension;
+        }
         $scope.navi.pushPage('expansion.html', {animation : 'slide'});
       });
     }
 
     // 次元プルダウン変更イベント
     $scope.changeDimension = function(){
-      // 一覧からエキスパンションアイコンを削除。
-      var result = document.getElementById("ex-result");
-      var link = result.children;
-      while(result.firstChild) {
-        result.removeChild(result.firstChild);
-      }
-
       var MC = monaca.cloud;
       var ex = MC.Collection("expansion");
       ex.find('dimension == ' + this.selectedModifier, {propertyNames:["abbreviation", "name"]}).
           done(function(items, totalItems) {
-            var expansions = items.items;
-            for (var i = "0"; i < expansions.length; i++) {
-              var abbr = expansions[i].abbreviation;
-              var name = expansions[i].name;
-              var li = document.createElement("ons-list-item");
-              var button  = document.createElement("ons-button");
-              button.setAttribute("modifier", "large--quiet");
-              button.classList.add("icon-only");
-              button.classList.add("mtx-" + abbr);
-              button.textContent = name;
-
-              // 各エキスパンションアイコンにクリックイベントを追加。
-              button.addEventListener("click", function(e) {
-                var target = e.target;
-                $scope.stock.exName = target.textContent;
-                $scope.stock.exAbbr = target.classList[target.classList.length - 2];
-                $scope.navi.popPage();
-              });
-              li.appendChild(button);
-              result.appendChild(li);
-            }
+            $scope.$apply(function() {
+              $scope.expansions = items.items;
+            });
           }).
           fail(function(err) {
             console.error(err.code);
           }
-        );
+        )
+    };
+
+  // エキスパンション選択イベント
+    $scope.clickExpansion = function(name, abbr) {
+      $scope.stock.exName = name;
+      $scope.stock.exAbbr = abbr;
+      $scope.stock.dimension = this.selectedModifier;
+      $scope.navi.popPage();
+
     };
   });
 

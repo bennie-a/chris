@@ -9,9 +9,12 @@
       id="choose-sel"
       class="di-selecter" ng-change="changeDimension()">
       <option value="none">選択してください</option>
-      <option ng-repeat="option in options" value="{{option.abbreviation}}">{{option.name}}</option>
+      <option ng-repeat="option in options" value="{{option.abbreviation}}" ng-selected="{{selectedModifier == option.abbreviation}}">{{option.name}}</option>
     </ons-select>
     <ons-list id="ex-result">
+      <ons-list-item tappable ng-repeat="ex in expansions" ng-click="clickExpansion(ex.name, ex.abbreviation)">
+        <span class="icon-only mtx-{{ex.abbreviation}}">{{ex.name}}</span>
+      </ons-list-item>
     </ons-list>
   </section>
 </ons-page>
