@@ -18,7 +18,7 @@
       </ons-list-item>
       <ons-list-item modifier="longdivider">
         <span class="list-item__title">言語</span>
-        <ons-select ng-model="page.language" id="language" modifier="language">
+        <ons-select ng-model="stock.language" id="language" modifier="language">
           <option value="ja">日本語</option>
           <option value="en">英語</option>
           <option value="ch">中国語</option>
@@ -41,23 +41,36 @@
           <ons-switch input-id="is-promo" ng-model="stock.promo"></ons-switch>
         </div>
       </ons-list-item>
-      <!-- <ons-list-header modifier="item-header">数量</ons-list-header>
+      <ons-list-header modifier="item-header">数量と入荷情報</ons-list-header>
       <ons-list-item modifier="longdivider">
+        <span class="list-item__title">数量</span>
         <div class="spinner">
             <minus-spinner count="1" limit="0" model="stock.amount"></minus-spinner>
             <span>{{stock.amount}}</span>
             <plus-spinner count="1" limit="10" model="stock.amount"></plus-spinner>
         </div>
       </ons-list-item>
-      <ons-list-header modifier="item-header">仕入れ情報</ons-list-header>
       <ons-list-item modifier="longdivider">
-        <span class="list-item__title">仕入れ日</span>
+        <span class="list-item__title">入荷日</span>
         <ons-input id="amount" modifier="material" type="number" ng-model="page.amount" size="2"></ons-input>
       </ons-list-item>
       <ons-list-item modifier="longdivider">
-        <span class="list-item__title">1枚当たり仕入れ価格</span>
+        <span class="list-item__title">1枚当たり入荷価格</span>
         <ons-input id="amount" modifier="material" type="number" ng-model="page.amount" size="2"></ons-input>
-      </ons-list-item> -->
+      </ons-list-item>
+      <ons-list-header modifier="item-header">ステータスと日程</ons-list-header>
+      <ons-list-item>
+        <span class="list-item__title">ステータス</span>
+          <ons-select ng-model="stock.status" id="status" modifier="language" ng-init="{{stock.status = 'before-listing'}}" select-id="{{stock.status == 'before-listing'}}">
+          <option value="before-listing">出品前</option>
+          <option value="listing">出品中</option>
+          <option value="await-a-deposit">入金待ち</option>
+          <option value="preparing">出荷準備</option>
+          <option value="evaluation">評価待ち</option>
+          <option value="complete">取引完了</option>
+        </ons-select>
+
+      </ons-list-item>
     </ons-list>
     <ons-button modifier="large submit-button" onclick="add_stock()">追加する</ons-button>
   </section>

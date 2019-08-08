@@ -115,7 +115,6 @@ div.spinner {
 
 div.spinner > span {
   box-sizing: border-box;
-  font-size: 1.3em;
   width: 40%;
   padding:2% 7% 0;
 }
